@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Modern Web Store</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-input type="text" [(ngModel)]="token"></ion-input>
+  <ion-list>
+    <ion-item-sliding #slidingItem *ngFor="let product of products">
+      <ion-item (click)="showDetails(product)">
+        <ion-avatar item-left>
+          <img src="{{ product.image }}">
+        </ion-avatar>
+        <h2>{{ product.title }}</h2>
+        <h3>{{ product.description }}</h3>
+        <p><strong>{{ product.price | currency: 'BRL' }}</strong></p>
+      </ion-item>
+      <ion-item-options side="right">
+        <button ion-button color="secondary" (click)="addToCart(slidingItem, product)">
+          <ion-icon name="add"></ion-icon>ADICIONAR
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>

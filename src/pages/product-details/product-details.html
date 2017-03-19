@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons start>
+      <button ion-button (click)="close()">
+        <span ion-text color="primary" showWhen="ios">Cancelar</span>
+        <ion-icon name="md-close" showWhen="android,windows"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Modern Web Store</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <p class="text-center">
+    <img src="{{ product.image }}" alt="">
+  </p>
+  <h1>{{ product.title }}</h1>
+  <p>{{ product.description }}</p>
+  <h1 class="text-center">{{ product.price | currency: 'BRL' }}</h1>  
+</ion-content>

@@ -1,0 +1,18 @@
+<ion-content padding>
+  <p class="text-center">
+    <img src="http://placehold.it/256x256" alt="Modern Web Store">
+  </p>
+  <ion-list no-lines>
+    <form [formGroup]="form">
+      <ion-item>
+        <ion-label floating>Usuário</ion-label>
+        <ion-input type="text" formControlName="username"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Senha</ion-label>
+        <ion-input type="password" formControlName="password"></ion-input>
+      </ion-item>
+    </form>
+  </ion-list>
+  <button ion-button color="primary" large outline block round [disabled]="!form.valid" (click)="submit()">ENTRAR</button>
+</ion-content>

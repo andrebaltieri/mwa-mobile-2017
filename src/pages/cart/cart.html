@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Carrinho</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list no-lines>
+    <ion-item *ngFor="let item of items">
+      <ion-avatar item-left>
+        <img src="{{ item.image }}">
+      </ion-avatar>
+      <h2>{{ item.title }}</h2>
+      <p><strong>{{ item.price | currency: 'BRL' }} x {{ item.quantity }}</strong></p>
+      <span item-right>{{ (item.price * item.quantity) | currency: 'BRL' }}</span>
+    </ion-item>
+    <ion-item>
+      <h2>TOTAL</h2>
+      <span item-right>R$ 0.00</span>
+    </ion-item>
+  </ion-list>
+  <div padding>
+    <button ion-button color="secondary" large outline block round (click)="checkout()">CHECKOUT</button>
+  </div>
+  
+</ion-content>

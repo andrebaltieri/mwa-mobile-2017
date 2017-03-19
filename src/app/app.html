@@ -1,0 +1,22 @@
+<ion-menu [content]="content" *ngIf="user">
+  <ion-content>
+    <p class="text-center">
+      <img src="{{ user.image }}" alt=""><br>
+      <strong>{{ user.name }}</strong>
+    </p>
+    <ion-list no-lines>
+      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+        <ion-icon name="{{p.icon}}" item-left></ion-icon>{{p.title}}      
+      </button>
+      <button menuClose ion-item (click)="goToCart()">
+        <ion-icon name="cart" item-left></ion-icon>Carrinho    
+      <ion-badge item-right>{{ items.length }}</ion-badge>        
+      </button>
+      <button menuClose ion-item (click)="logout()">
+        <ion-icon name="power" item-left></ion-icon>SAIR
+      </button>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
